@@ -47,4 +47,4 @@ When an event is cancelled, the EventBus will stop calling subscriber methods fo
 
 ### Credits:
 
-Thanks alot oragejuice/lndav for explaining how nukerbus worked while high asl and Hexception for inspiration
+Thanks alot oragejuice for explaining how nukerbus worked while high asl and Hexception for inspiration
