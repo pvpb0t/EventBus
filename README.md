@@ -44,3 +44,7 @@ TestEvent testEvent = new TestEvent();
 testEvent.setCancelled(true);
 ```
 When an event is cancelled, the EventBus will stop calling subscriber methods for that event.
+
+### Credits:
+
+Thanks alot oragejuice/lndav for explaining how nukerbus worked while high asl and Hexception for inspiration
