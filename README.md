@@ -1,5 +1,9 @@
 # EventBus
 
+## How is this eventbus different?
+
+This event bus implementation is different from others as it avoids using reflection methods like Method.invoke() and instead uses statically defined method references. This means that the event bus does not rely on the JVM performing method lookups at runtime, resulting in faster and more efficient event handling. Additionally, using statically defined method references improves code safety and readability as the event listener methods are explicitly defined in the subscriber classes.
+
 ## Getting Started:
 To use the EventBus, you will need to create an instance of the EventManager class. This class will manage all of the events and subscribers in your application. Here is an example of how to create an instance of the EventManager class:
 ```java
