@@ -60,6 +60,8 @@ public class EventManager {
      @param event the event to be hooked to listeners.
      */
     public void hook(AbstractEvent event) {
+        if(event.isCancelled())
+            return;
         Class<? extends AbstractEvent> eventClass = event.getClass();
         if (subscribers.containsKey(eventClass)) {
             for (DefaultListener listener : subscribers.get(eventClass)) {
