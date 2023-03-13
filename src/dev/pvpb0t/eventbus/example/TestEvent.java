@@ -1,6 +1,6 @@
-package dev.liminality.eventbus.example;
+package dev.pvpb0t.eventbus.example;
 
-import dev.liminality.eventbus.AbstractEvent;
+import dev.pvpb0t.eventbus.AbstractEvent;
 
 /**
  A subclass of the AbstractEvent class representing a test event.

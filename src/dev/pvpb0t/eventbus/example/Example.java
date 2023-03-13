@@ -1,6 +1,6 @@
-package dev.liminality.eventbus.example;
+package dev.pvpb0t.eventbus.example;
 
-import dev.liminality.eventbus.EventManager;
+import dev.pvpb0t.eventbus.EventManager;
 
 public class Example {
     private static EventManager eventManager = new EventManager();

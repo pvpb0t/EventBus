@@ -1,6 +1,6 @@
-package dev.liminality.eventbus.example;
+package dev.pvpb0t.eventbus.example;
 
-import dev.liminality.eventbus.EventHook;
+import dev.pvpb0t.eventbus.EventHook;
 
 /**
  A class representing a subscriber for the TestEvent.

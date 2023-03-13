@@ -1,4 +1,4 @@
-package dev.liminality.eventbus;
+package dev.pvpb0t.eventbus;
 
 /**
  An abstract class for events that can be listened to and cancelled.

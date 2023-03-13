@@ -1,4 +1,4 @@
-package dev.liminality.eventbus;
+package dev.pvpb0t.eventbus;
 
 import java.lang.reflect.Method;
 
