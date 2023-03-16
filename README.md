@@ -45,6 +45,17 @@ testEvent.setCancelled(true);
 ```
 When an event is cancelled, the EventBus will stop calling subscriber methods for that event.
 
+## Unsubscribing from Events:
+
+To unsubscribe from events, you can use the unsubscribe() method on the EventManager object. This method takes a subscriber object as a parameter and removes all of its subscribed methods from the event bus. Here is an example of how to unsubscribe a TestSubscriber object from the EventManager:
+
+```java
+TestSubscriber testSubscriber = new TestSubscriber();
+eventManager.unsubscribe(testSubscriber);
+```
+
+After calling the unsubscribe() method, none of the methods in the TestSubscriber object will be called when their subscribed events are fired.
+
 ### Credits:
 
 Thanks alot oragejuice for explaining how nukerbus worked while high asl and Hexception for inspiration
