@@ -78,7 +78,11 @@ public class EventManager {
 
 
 
-
+    /**
+    Unsubscribes an object from all events it was previously subscribed to.
+    The unsubscribe method removes all the event listeners associated with the specified object from the subscribers map.
+    @param object the object to be unsubscribed from events.
+    */
     public void unsubscribe(final Object object){
         Class<?> clazz = object.getClass();
         for (Method method : clazz.getDeclaredMethods()) {
