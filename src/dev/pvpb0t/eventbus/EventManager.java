@@ -79,6 +79,25 @@ public class EventManager {
 
 
 
+    public void unsubscribe(final Object object){
+        Class<?> clazz = object.getClass();
+        for (Method method : clazz.getDeclaredMethods()) {
+            if (method.isAnnotationPresent(EventHook.class)) {
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                if (parameterTypes.length > 0 && AbstractEvent.class.isAssignableFrom(parameterTypes[0])) {
+                    final Class<? extends AbstractEvent> eventClazz = (Class<? extends AbstractEvent>) method.getParameterTypes()[0];
+                    ArrayList<DefaultListener> listeners = subscribers.get(eventClazz);
+                    if (listeners != null) {
+                        listeners.removeIf(listener -> listener.getSource() == object);
+                        if (listeners.isEmpty()) {
+                            subscribers.remove(eventClazz);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
 
 
