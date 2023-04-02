@@ -1,5 +1,9 @@
 # EventBus
 
+## Lightweight, Fast, and Compact
+
+The EventBus is designed to be very lightweight, fast, and compact. By avoiding reflection and using statically defined method references, the event bus is able to handle events quickly and efficiently. This makes it an ideal choice for applications that require fast and responsive event handling.
+
 ## How is this eventbus different?
 
 This event bus implementation is different from others as it avoids using reflection methods like Method.invoke() and instead uses statically defined method references. This means that the event bus does not rely on the JVM performing method lookups at runtime, resulting in faster and more efficient event handling. Additionally, using statically defined method references improves code safety and readability as the event listener methods are explicitly defined in the subscriber classes.
@@ -9,10 +13,6 @@ To use the EventBus, you will need to create an instance of the EventManager cla
 ```java
 EventManager eventManager = new EventManager();
 ```
-
-## Lightweight, Fast, and Compact
-
-The EventBus is designed to be very lightweight, fast, and compact. By avoiding reflection and using statically defined method references, the event bus is able to handle events quickly and efficiently. This makes it an ideal choice for applications that require fast and responsive event handling.
 
 ## Subscribing to Events:
 After creating an instance of the EventManager class, you can subscribe to events using the subscribe() method. This method takes a subscriber object as a parameter. A subscriber object is an instance of a class that contains methods that will be called when an event is fired. These methods must have a single parameter that corresponds to the event object being fired. Here is an example of how to create a subscriber object:
