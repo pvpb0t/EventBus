@@ -1,5 +1,7 @@
 # EventBus
 
+## Javadocs can be viewed [here](https://pvpb0t.github.io/EventBus/javadoc)
+
 ## Lightweight, Fast, and Compact
 
 The EventBus is designed to be very lightweight, fast, and compact. By avoiding reflection and using statically defined method references, the event bus is able to handle events quickly and efficiently. This makes it an ideal choice for applications that require fast and responsive event handling.
