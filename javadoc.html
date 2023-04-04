@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eventbus Javadoc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Eventbus Javadoc</h1>
+    <p>EventManager class for managing event subscriptions and handling event hooks.
+    Uses a ConcurrentHashMap to store the subscribers for thread-safe access.
+    Each event class is mapped to a list of DefaultListeners.</p>
+    <p><em>Author: pvpb0t</em></p>
+    <p><em>Since: 3/12/2023</em></p>
+    <h2>Class Summary</h2>
+    <table border="1">
+        <tr>
+            <th>Modifier and Type</th>
+            <th>Class and Description</th>
+        </tr>
+        <tr>
+            <td><code>public class <strong>EventManager</strong></code></td>
+            <td>EventManager class for managing event subscriptions and handling event hooks.</td>
+        </tr>
+    </table>
+    <h2>Constructor Detail</h2>
+    <p><strong>EventManager()</strong></p>
+    <blockquote>
+        <p>Creates an instance of the EventManager class.</p>
+    </blockquote>
+    <h2>Method Detail</h2>
+    <p><strong>public void <em>subscribe</em>(final Object object)</strong></p>
+    <blockquote>
+        <p>Subscribes an object to events that it has specified methods for.
+        Gets all declared methods of the object, checks for the presence of the EventHook annotation,
+        and adds a DefaultListener to the corresponding list of the event class in the subscribers map.</p>
+        <p><em>Parameters:</em></p>
+        <ul>
+            <li><code>object</code> - the object to be subscribed to events.</li>
+        </ul>
+    </blockquote>
+    <p><strong>public void <em>hook</em>(AbstractEvent event)</strong></p>
+    <blockquote>
+        <p>Hooks an event to all its subscribed listeners.
+        Invokes the handle method of each DefaultListener that is subscribed to the event class of the given event.</p>
+        <p><em>Parameters:</em></p>
+        <ul>
+            <li><code>event</code> - the event to be hooked to listeners.</li>
+        </ul>
+    </blockquote>
+    <p><strong>public void <em>unsubscribe</em>(final Object object)</strong></p>
+    <blockquote>
+        <p>Unsubscribes an object from all events that it has subscribed to.</p>
+        <p><em>Parameters:</em></p>
+        <ul>
+            <li><code>object</code> - the object to be unsubscribed from events.</li>
+        </ul>
+    </blockquote>
+    <h2>Field Detail</h2>
+    <p><strong>private final ConcurrentHashMap&lt;Class&lt;? extends AbstractEvent&gt;, ArrayList&lt;DefaultListener&gt;&gt; <em>subscribers</em></strong></p>
+    <blockquote>
+        <p>ConcurrentHashMap used to store subscribers for thread-safe access.</p>
+    </blockquote>
+<h2>Annotation Detail</h2>
+<p><strong><code>@interface <strong>EventHook</strong></code></strong></p>
+<blockquote>
+    <p>Annotation to mark a method as an event hook. The annotated method should take in one parameter of type AbstractEvent or any of its subclasses.
+    The priority of the event hook can be specified with the priority parameter, with a lower value indicating a higher priority.</p>
+    <p><em>Author: pvpb0t</em></p>
+    <p><em>Since: 3/12/2023</em></p>
+    <h3>Element Detail</h3>
+    <p><strong>priority</strong></p>
+    <blockquote>
+        <p>int <strong>priority()</strong> default 0</p>
+        <p>Returns the priority of the event hook. A lower value indicates a higher priority.</p>
+    </blockquote>
+</blockquote>
+<h2>Class Summary</h2>
+<table border="1">
+    <tr>
+        <th>Modifier and Type</th>
+        <th>Class and Description</th>
+    </tr>
+    <tr>
+        <td><code>public class <strong>DefaultListener</strong></code></td>
+        <td>A default listener for handling events. Implements the EventListener interface and provides a handle method that can be invoked by the EventManager when an event is fired.</td>
+    </tr>
+</table>
+<blockquote>
+    <p>Class that stores a method with the <code>EventHook</code> annotation and its corresponding priority.
+    Implements the <code>Comparable</code> interface to allow sorting of listeners by priority.</p>
+    <p><em>Author: pvpb0t</em></p>
+    <p><em>Since: 3/12/2023</em></p>
+    <h3>Constructor Detail</h3>
+    <p><strong><code>DefaultListener(Method method, int priority)</code></strong></p>
+    <blockquote>
+        <p>Creates an instance of the DefaultListener class with the specified method and priority.</p>
+        <p><em>Parameters:</em></p>
+        <ul>
+            <li><code>method</code> - the method with the <code>EventHook</code> annotation.</li>
+            <li><code>priority</code> - the priority of the listener.</li>
+        </ul>
+    </blockquote>
+    <h3>Method Detail</h3>
+    <p><strong><code>public void handle(AbstractEvent event)</code></strong></p>
+    <blockquote>
+        <p>Invokes the method with the <code>EventHook</code> annotation and passes in the specified event as a parameter.</p>
+        <p><em>Parameters:</em></p>
+        <ul>
+            <li><code>event</code> - the event to be handled by the listener.</li>
+        </ul>
+    </blockquote>
+    <h3>Implemented Interfaces</h3>
+    <ul>
+        <li><code>Comparable&lt;DefaultListener&gt;</code></li>
+    </ul>
+</blockquote>
+<h1>AbstractEvent Class</h1>
+    <p>
+        An abstract class for events that can be listened to and cancelled. Subclasses should override the appropriate methods to define the event's behavior.
+    </p>
+    <h2>Class Summary</h2>
+<table border="1">
+    <tr>
+        <th>Modifier and Type</th>
+        <th>Class and Description</th>
+    </tr>
+    <tr>
+        <td><code>public abstract class <strong>AbstractEvent</strong></code></td>
+        <td>An abstract class for events that can be listened to and cancelled. Subclasses should override the appropriate methods to define the event's behavior.</td>
+    </tr>
+</table>
+
+<blockquote>
+    <p><em>Author: pvpb0t</em></p>
+    <p><em>Since: 3/12/2023</em></p>
+
+    <h3>Method Detail</h3>
+
+    <h4>isCancelled()</h4>
+    <p>Indicates whether the event has been cancelled.</p>
+    <blockquote>
+        <h5>Returns:</h5>
+        <ul>
+            <li><code>true</code> if the event is cancelled.</li>
+            <li><code>false</code> otherwise.</li>
+        </ul>
+    </blockquote>
+
+    <h4>setCancelled(boolean way)</h4>
+    <p>Sets the cancelled state of the event.</p>
+    <blockquote>
+        <h5>Parameters:</h5>
+        <ul>
+            <li><code>way</code>: the new cancelled state of the event.</li>
+        </ul>
+    </blockquote>
+
+    <h3>Fields</h3>
+    <h4>cancelled</h4>
+    <p>Represents the cancelled state of the event.</p>
+</blockquote>
+</body>
+</html>

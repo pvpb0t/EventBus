@@ -1,0 +1,104 @@
+/* Set font and background color */
+body {
+font-family: 'Inter', sans-serif;
+background-color: #1c1c1e;
+color: #f1f1f1;
+font-weight: 400;
+font-size: 16px;
+border-radius: 20px;
+}
+
+/* Style the page title */
+h1 {
+font-size: 48px;
+color: #f1f1f1;
+text-align: center;
+margin-top: 80px;
+margin-bottom: 40px;
+border-radius: 20px;
+}
+
+/* Style the section headers */
+h2 {
+font-size: 36px;
+color: #f1f1f1;
+margin-top: 60px;
+margin-bottom: 20px;
+border-bottom: 1px solid #7c7c81;
+border-radius: 10px;
+}
+
+/* Style the table */
+table {
+border-collapse: collapse;
+width: 100%;
+margin-bottom: 40px;
+border-radius: 20px;
+}
+
+th, td {
+border: none;
+padding: 16px;
+text-align: left;
+vertical-align: middle;
+border-radius: 20px;
+}
+
+th {
+background-color: #29292c;
+color: #f1f1f1;
+font-size: 24px;
+font-weight: 500;
+}
+
+td {
+background-color: #2e2e32;
+color: #f1f1f1;
+font-weight: 400;
+}
+
+/* Style the code blocks */
+pre {
+background-color: #1c1c1e;
+border: none;
+padding: 20px;
+overflow: auto;
+font-size: 18px;
+line-height: 1.4;
+margin-top: 40px;
+margin-bottom: 40px;
+border-radius: 20px;
+}
+
+/* Style the annotations */
+blockquote {
+background-color: #2e2e32;
+border: none;
+padding: 40px;
+margin-bottom: 60px;
+font-size: 24px;
+line-height: 1.4;
+color: #f1f1f1;
+border-radius: 20px;
+}
+
+/* Style the author and since elements in the annotations */
+blockquote em {
+font-style: normal;
+color: #7c7c81;
+font-size: 18px;
+font-weight: 500;
+}
+
+/* Style the parameters and return type elements in the method details */
+ul {
+margin-bottom: 20px;
+}
+
+li strong {
+font-weight: bold;
+color: #f1f1f1;
+font-size: 20px;
+line-height: 1.4;
+border-radius: 10px;
+}
