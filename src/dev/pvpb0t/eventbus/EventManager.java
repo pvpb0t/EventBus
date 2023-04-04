@@ -86,12 +86,9 @@ public class EventManager {
                Class<?>[] parameterTypes = method.getParameterTypes();
                if (parameterTypes.length > 0 && AbstractEvent.class.isAssignableFrom(parameterTypes[0])) {
                    final Class<? extends AbstractEvent> eventClazz = (Class<? extends AbstractEvent>) method.getParameterTypes()[0];
-                   // Get the list of listeners for the event class
                    ArrayList<DefaultListener> listeners = subscribers.get(eventClazz);
                    if (listeners != null) {
-                       // Remove all listeners that have the object as their source
                        listeners.removeIf(listener -> listener.getSource() == object);
-                       // If there are no more listeners for the event class, remove it from the map
                        if (listeners.isEmpty()) {
                            subscribers.remove(eventClazz);
                        }
