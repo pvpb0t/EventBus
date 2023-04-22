@@ -1,4 +1,4 @@
-package dev.pvpb0t.eventbus.example;
+package dev.pvpb0t.eventbus;
 
 import dev.pvpb0t.eventbus.EventHook;
 
